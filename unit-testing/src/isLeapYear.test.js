@@ -1,6 +1,6 @@
 const isLeapYear = require('./isLeapYear')
 
-describe('check if year is a leap year', () => {
+describe('isLeapYear', () => {
   describe('when a number is passed as argument', () => {
     it('returns true if number is a leap year', () => {
       expect(isLeapYear(2000)).toEqual(true)
@@ -14,26 +14,22 @@ describe('check if year is a leap year', () => {
       expect(isLeapYear(2000.5)).toEqual(false)
     })
 
-    // it('returns false if number is not an integer (with comma)', () => {
-    //   expect(isLeapYear(2000,5)).toEqual(false)
-    // })
-
     it('returns false if number is negative', () => {
       expect(isLeapYear(-2000)).toEqual(false)
     })
   })
 
-  describe('when NaN is passed as argument', () => {
-    it('returns false if string is passed', () => {
-      expect(isLeapYear('hahaha')).toEqual(false)
+  describe('when something that is not a number is passed as argument', () => {
+    it('throws error if string is passed', () => {
+      expect(() => isLeapYear('hahaha')).toThrow('The argument passed is not a number.')
     })
 
-    it('returns false if boolean is passed', () => {
-      expect(isLeapYear(true)).toEqual(false)
+    it('throws error if boolean is passed', () => {
+      expect(() => isLeapYear(true)).toThrow('The argument passed is not a number.')
     })
 
-    it('returns false if nothing/undefined is passed', () => {
-      expect(isLeapYear()).toEqual(false)
+    it('throws error if nothing/undefined is passed', () => {
+      expect(() => isLeapYear()).toThrow('The argument passed is not a number.')
     })
   })
 })

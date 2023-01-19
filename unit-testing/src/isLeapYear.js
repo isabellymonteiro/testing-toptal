@@ -1,4 +1,9 @@
 const isLeapYear = (year) => {
+  console.log(typeof year)
+  if (typeof year !== 'number') {
+    throw new Error('The argument passed is not a number.')
+  }
+
   if (!Number.isInteger(year) || year < 0) {
     return false
   }
