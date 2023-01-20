@@ -1,5 +1,4 @@
 const isLeapYear = (year) => {
-  console.log(typeof year)
   if (typeof year !== 'number') {
     throw new Error('The argument passed is not a number.')
   }
@@ -8,19 +7,7 @@ const isLeapYear = (year) => {
     return false
   }
 
-  if (year % 4 === 0) {
-    if (year % 100 === 0) {
-      if (year % 400 === 0) {
-        return true
-      } else {
-        return false
-      }
-    } else {
-      return true
-    }
-  } else {
-    return false
-  }
+  return (year % 4 === 0 && year % 100 !== 0) || (year % 100 === 0 && year % 400 === 0)
 }
 
 module.exports = isLeapYear

@@ -3,11 +3,17 @@ const isLeapYear = require('./isLeapYear')
 describe('isLeapYear', () => {
   describe('when a number is passed as argument', () => {
     it('returns true if number is a leap year', () => {
+      expect(isLeapYear(1600)).toEqual(true)
       expect(isLeapYear(2000)).toEqual(true)
+      expect(isLeapYear(2400)).toEqual(true)
     })
 
     it('returns false if number is not a leap year', () => {
       expect(isLeapYear(1700)).toEqual(false)
+      expect(isLeapYear(1800)).toEqual(false)
+      expect(isLeapYear(1900)).toEqual(false)
+      expect(isLeapYear(2100)).toEqual(false)
+      expect(isLeapYear(2600)).toEqual(false)
     })
 
     it('returns false if number is not an integer (with dot)', () => {
